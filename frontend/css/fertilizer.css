@@ -1,0 +1,206 @@
+/* ── Fertilizer Program Styles ─────────────────── */
+
+/* Program Cards */
+.program-card {
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: var(--surface-card);
+  margin-bottom: var(--space-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.program-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+.program-card.recommended {
+  border-color: rgba(82, 183, 136, 0.4);
+  background: linear-gradient(135deg, var(--surface-card) 90%, rgba(82, 183, 136, 0.08) 100%);
+}
+.program-card .program-brand {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-accent);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-xs);
+}
+.program-card .program-name {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-xs);
+}
+.program-card .program-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  line-height: 1.4;
+}
+.program-card .program-meta {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Progress Bar */
+.fert-progress {
+  background: var(--surface-elevated);
+  border-radius: var(--radius-pill);
+  height: 12px;
+  overflow: hidden;
+  margin: var(--space-md) 0;
+}
+.fert-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent), #74C69D);
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  min-width: 0;
+}
+
+/* Step Cards */
+.step-card {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  transition: all 0.2s;
+}
+.step-card.step-done {
+  opacity: 0.7;
+  border-left: 3px solid var(--color-success);
+}
+.step-card.step-current {
+  border-left: 3px solid var(--color-accent);
+  background: rgba(82, 183, 136, 0.06);
+}
+.step-card.step-overdue {
+  border-left: 3px solid var(--color-danger);
+  background: rgba(255, 107, 107, 0.06);
+}
+.step-card.step-upcoming {
+  opacity: 0.6;
+  border-left: 3px solid var(--border-medium);
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  flex-shrink: 0;
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+}
+.step-done .step-number {
+  background: var(--color-success);
+  color: #fff;
+}
+.step-current .step-number {
+  background: var(--color-accent);
+  color: #fff;
+  animation: pulse-ring 2s infinite;
+}
+.step-overdue .step-number {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(82, 183, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+}
+
+.step-info {
+  flex: 1;
+  min-width: 0;
+}
+.step-product {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  margin-bottom: 2px;
+}
+.step-season {
+  font-size: var(--fs-xs);
+  color: var(--text-accent);
+}
+.step-purpose {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+.step-actions {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+/* Shopping List */
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.shopping-item:last-child {
+  border-bottom: none;
+}
+.bag-count {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+  flex-shrink: 0;
+}
+.shopping-product {
+  flex: 1;
+  min-width: 0;
+}
+.shopping-product-name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+}
+.shopping-product-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+/* Recommended Badge */
+.badge-recommended {
+  background: rgba(82, 183, 136, 0.15);
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+/* Custom Program Builder */
+.custom-step-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.custom-step-row:last-child {
+  border-bottom: none;
+}

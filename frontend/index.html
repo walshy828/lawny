@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="description" content="Lawny — Smart Lawn Care Manager. Track maintenance, get AI-powered recommendations, and grow the perfect lawn.">
+  <meta name="theme-color" content="#0B1A0E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lawny">
+
+  <title>Lawny — Lawn Care Manager</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/fertilizer.css">
+  <link rel="stylesheet" href="/css/plan.css">
+</head>
+<body>
+  <div id="app">
+    <main id="pageContent">
+      <div class="loading-center" style="min-height:80vh">
+        <div class="spinner spinner-lg"></div>
+      </div>
+    </main>
+    <nav class="bottom-nav" id="bottomNav"></nav>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+  <!-- Application JS -->
+  <script src="/js/api.js"></script>
+  <script src="/js/utils/formatters.js"></script>
+  <script src="/js/components/toast.js"></script>
+  <script src="/js/components/modal.js"></script>
+  <script src="/js/components/quick-log.js"></script>
+
+  <!-- Pages (sub-pages load before hub pages that depend on them) -->
+  <script src="/js/pages/dashboard.js"></script>
+  <script src="/js/pages/lawn-map.js"></script>
+  <script src="/js/pages/diagnosis.js"></script>
+  <script src="/js/pages/settings.js"></script>
+  <script src="/js/pages/fertilizer.js"></script>
+  <script src="/js/pages/soil-tests.js"></script>
+  <script src="/js/pages/assessment.js"></script>
+  <script src="/js/pages/lawn-program.js"></script>
+  <script src="/js/pages/what-if.js"></script>
+  <script src="/js/pages/plan.js"></script>
+
+  <!-- Hub pages (depend on sub-pages above) -->
+  <script src="/js/pages/my-lawn.js"></script>
+  <script src="/js/pages/ai-hub.js"></script>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

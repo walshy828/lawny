@@ -1,0 +1,910 @@
+/* ── Dashboard Styles ──────────────────────────────────────────── */
+
+/* Page header */
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+.dash-logo {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dash-greeting {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+/* Weather card */
+.weather-card {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  border-color: var(--border-medium);
+  overflow: hidden;
+  position: relative;
+}
+.weather-card::after {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(82, 183, 136, 0.2), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+.weather-temp {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+.weather-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+.weather-icon {
+  font-size: 3rem;
+}
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+.weather-detail {
+  text-align: center;
+  padding: var(--space-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+}
+.weather-detail-value {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+.weather-detail-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* Soil temp card */
+.soil-temps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.soil-temp-item {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+.soil-temp-value {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+}
+.soil-temp-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Health gauge */
+.health-gauge {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  margin: 0 auto var(--space-md);
+}
+.health-gauge-arc {
+  width: 160px;
+  height: 80px;
+  border-radius: 80px 80px 0 0;
+  background: conic-gradient(
+    from 180deg at 50% 100%,
+    var(--health-1) 0deg,
+    var(--health-3) 36deg,
+    var(--health-5) 72deg,
+    var(--health-7) 108deg,
+    var(--health-9) 144deg,
+    var(--health-10) 180deg
+  );
+  position: relative;
+  overflow: hidden;
+}
+.health-gauge-arc::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  background: var(--bg-card);
+  border-radius: 60px 60px 0 0;
+}
+.health-gauge-value {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+  z-index: 1;
+}
+.health-gauge-label {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+/* Watering recommendation card */
+.water-card {
+  border-left: 3px solid var(--color-info);
+}
+.water-card.water-none { border-left-color: var(--color-success); }
+.water-card.water-light { border-left-color: var(--color-info); }
+.water-card.water-moderate { border-left-color: var(--color-warning); }
+.water-card.water-heavy { border-left-color: var(--color-danger); }
+
+.water-rec-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+.water-rec-icon { font-size: 2rem; }
+.water-rec-title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+.water-rec-freq {
+  font-size: var(--fs-sm);
+  color: var(--text-accent);
+}
+.water-rec-reasoning {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+/* Upcoming tasks */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.task-item:last-child { border-bottom: none; }
+.task-icon { font-size: 1.2rem; }
+.task-info { flex: 1; }
+.task-name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  text-transform: capitalize;
+}
+.task-due {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.task-overdue { color: var(--color-danger) !important; }
+.task-complete-btn {
+  background: none;
+  border: 2px solid var(--border-medium);
+  width: 28px; height: 28px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all var(--transition-fast);
+}
+.task-complete-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-success-bg);
+}
+
+/* Drought indicator */
+.drought-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition: all var(--transition-base);
+}
+.drought-pulse {
+  animation: droughtPulse 2s ease-in-out infinite;
+}
+@keyframes droughtPulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50% { box-shadow: 0 0 12px 2px currentColor; opacity: 0.85; }
+}
+
+/* Setup prompt */
+.setup-card {
+  text-align: center;
+  padding: var(--space-2xl);
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-xl);
+}
+.setup-card-icon { font-size: 3rem; margin-bottom: var(--space-md); }
+.setup-card-title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-sm);
+}
+.setup-card-desc {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Hydration Balance Card ───────────────────────── */
+.hydration-card {
+  border-left: 3px solid var(--color-info);
+  overflow: hidden;
+}
+.hydration-card.hydration-balanced { border-left-color: var(--color-success); }
+.hydration-card.hydration-under { border-left-color: var(--color-warning); }
+.hydration-card.hydration-under-heavy { border-left-color: var(--color-danger); }
+.hydration-card.hydration-over { border-left-color: var(--color-info); }
+.hydration-card.hydration-over-heavy { border-left-color: #7C3AED; }
+
+/* Status badge */
+.hydration-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+.hydration-badge-balanced { background: var(--color-success-bg); color: var(--color-success); }
+.hydration-badge-under { background: var(--color-warning-bg); color: var(--color-warning); }
+.hydration-badge-under-heavy { background: var(--color-danger-bg); color: var(--color-danger); }
+.hydration-badge-over { background: var(--color-info-bg); color: var(--color-info); }
+.hydration-badge-over-heavy { background: rgba(124, 58, 237, 0.12); color: #7C3AED; }
+
+/* Delta display */
+.hydration-delta {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+.hydration-delta-value {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+}
+.hydration-delta-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Stacked bar */
+.hydration-bar-section {
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.hydration-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+.hydration-bar-track {
+  position: relative;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+}
+.hydration-bar-segment {
+  height: 100%;
+  transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  min-width: 0;
+}
+.hydration-bar-rain {
+  background: linear-gradient(135deg, #228BE6, #339AF0);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+.hydration-bar-watered {
+  background: linear-gradient(135deg, #15AABF, #22B8CF);
+}
+.hydration-bar-deficit {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(250, 82, 82, 0.08),
+    rgba(250, 82, 82, 0.08) 4px,
+    rgba(250, 82, 82, 0.16) 4px,
+    rgba(250, 82, 82, 0.16) 8px
+  );
+}
+.hydration-bar-need-marker {
+  position: absolute;
+  right: 0;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+.hydration-bar-legend {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.hydration-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.hydration-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── 14-Day Timeline ─────────────────────────────── */
+.hydration-timeline-section {
+  padding: var(--space-md) 0;
+}
+.hydration-timeline-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+.hydration-timeline {
+  overflow: hidden;
+}
+.hydration-timeline-divider-wrap {
+  display: flex;
+  gap: 0;
+  align-items: flex-end;
+  height: 100px;
+}
+.hydration-timeline-past,
+.hydration-timeline-future {
+  display: flex;
+  flex: 1;
+  gap: 2px;
+  align-items: flex-end;
+  height: 100%;
+}
+.hydration-timeline-divider {
+  width: 2px;
+  height: 100%;
+  background: var(--border-medium);
+  margin: 0 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.hydration-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+.hydration-day-bars {
+  width: 100%;
+  height: 64px;
+  position: relative;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.hydration-day-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.hydration-day-rain {
+  background: linear-gradient(to top, #228BE6, #339AF0);
+  opacity: 0.85;
+}
+.hydration-day-watered {
+  background: linear-gradient(to top, #15AABF, #22B8CF);
+  opacity: 0.85;
+}
+.hydration-forecast-fill {
+  opacity: 0.4;
+  background: repeating-linear-gradient(
+    45deg,
+    #339AF0,
+    #339AF0 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+.hydration-day-need-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  opacity: 0.6;
+  border-radius: 1px;
+}
+.hydration-day-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  text-align: center;
+}
+.hydration-day-temp {
+  font-size: 8px;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+.hydration-day-forecast .hydration-day-bars {
+  opacity: 0.7;
+}
+
+/* Forecast outlook */
+.hydration-outlook {
+  padding: var(--space-md) 0 var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
+}
+.hydration-outlook-header {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-sm);
+}
+.hydration-outlook-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  text-align: center;
+}
+.hydration-action-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-warning-bg);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  color: var(--color-warning);
+  line-height: 1.4;
+}
+
+/* ── Info Tooltip Icon ──────────────────────────────────── */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  color: var(--text-muted);
+  font-size: 9px;
+  font-style: normal;
+  cursor: help;
+  position: relative;
+  vertical-align: middle;
+  margin-left: 3px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.info-icon::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  white-space: normal;
+  width: 210px;
+  text-align: left;
+  line-height: 1.45;
+  z-index: 200;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.info-icon:hover::after {
+  opacity: 1;
+}
+
+/* Adjustments note */
+.hydration-adjustments {
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-sm);
+}
+
+/* ── Water Input (Log Activity) ───────────────────── */
+.water-input-section {
+  margin-top: var(--space-lg);
+}
+.water-mode-toggle {
+  display: flex;
+  gap: 0;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  margin-bottom: var(--space-md);
+}
+.water-mode-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: calc(var(--radius-sm) - 2px);
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+.water-mode-btn.active {
+  background: var(--bg-elevated);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+.water-mode-btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+.water-mode-panel {
+  animation: fadeIn 0.2s ease;
+}
+.water-calc-result {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Hero Card ────────────────────────────────────────────────── */
+.hero-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--color-primary-dark));
+  border-color: var(--border-medium);
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+}
+.hero-body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+.hero-score-col {
+  flex: 0 0 auto;
+}
+.hero-score {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+.hero-score-sub {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+.hero-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+.hero-chart-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+.hero-cta { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border-subtle); }
+.hero-task-badge {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.hero-task-badge.overdue { background: var(--color-danger-bg); color: var(--color-danger); }
+.hero-task-badge.due { background: var(--color-warning-bg); color: var(--color-warning); }
+.hero-task-badge.ok { background: rgba(82,183,136,0.12); color: var(--color-accent); }
+.hero-trend-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+.hero-trend-badge.up { background: rgba(82,183,136,0.15); color: var(--color-accent); }
+.hero-trend-badge.down { background: var(--color-danger-bg); color: var(--color-danger); }
+.hero-trend-badge.flat { background: var(--bg-elevated); color: var(--text-muted); }
+
+/* ── Sparkline ────────────────────────────────────────────────── */
+.sparkline-wrap { display: flex; align-items: center; justify-content: flex-end; }
+.sparkline-empty { padding: var(--space-sm); }
+
+/* ── Quick Stats Row ──────────────────────────────────────────── */
+.dash-quick-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+.quick-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: 70px;
+}
+.quick-stat-loading {
+  justify-content: center;
+}
+.quick-stat-icon { font-size: 1.4rem; flex-shrink: 0; }
+.quick-stat-label { font-size: var(--fs-xs); color: var(--text-muted); }
+.quick-stat-value { font-size: var(--fs-md); font-weight: var(--fw-bold); line-height: 1.2; text-transform: capitalize; }
+.quick-stat-sub { font-size: var(--fs-xs); color: var(--text-secondary); }
+
+/* ── AI Insight Card ──────────────────────────────────────────── */
+.ai-insight-card {
+  margin-bottom: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+.ai-insight-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+.ai-insight-badge {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.ai-insight-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+.ai-insight-body {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.ai-insight-extra {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ── Collapsible Sections ─────────────────────────────────────── */
+.dash-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+}
+.dash-section-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+.dash-section-hdr:hover { background: var(--bg-elevated); }
+.dash-section-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+.dash-section-body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+.dash-section-body > .card { margin-bottom: 0; }
+.dash-chevron {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+  transform: rotate(90deg);
+  flex-shrink: 0;
+}
+.dash-chevron.open { transform: rotate(270deg); }
+
+/* ── Timeline Items (recent activities) ──────────────────────── */
+.timeline-item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.timeline-content { flex: 1; min-width: 0; }
+.timeline-title { font-size: var(--fs-sm); font-weight: var(--fw-medium); }
+.timeline-meta { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
+
+/* ── Soil Summary Metrics ─────────────────────────────────────── */
+.soil-metrics {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin: var(--space-sm) 0;
+}
+.soil-metric { text-align: center; min-width: 40px; }
+.soil-metric-value { font-size: var(--fs-lg); font-weight: var(--fw-bold); line-height: 1.1; }
+.soil-metric-label { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
+
+/* ── Stat Row (used in hydration and dashboard cards) ─────────── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  text-align: center;
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-value { font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.stat-label { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
+
+/* ── Quick-Log Bottom Sheet ───────────────────────────────────── */
+.quick-log-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  animation: fadeIn 0.2s ease;
+}
+.quick-log-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
+  max-height: 92dvh;
+  overflow-y: auto;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1101;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.quick-log-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border-medium);
+  border-radius: 2px;
+  margin: 0 auto var(--space-lg);
+}
+.quick-log-title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.quick-log-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+.quick-log-type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-md) var(--space-xs);
+  background: var(--bg-elevated);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+}
+.quick-log-type-btn:hover { background: var(--bg-card); border-color: var(--border-medium); color: var(--text-primary); }
+.quick-log-type-btn.selected { border-color: var(--color-accent); background: rgba(82,183,136,0.1); color: var(--color-accent); }
+.quick-log-type-icon { font-size: 1.5rem; }
+
+/* ── Soil Trend Chart ─────────────────────────────────────────── */
+.soil-trend-row {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--space-xs);
+  -webkit-overflow-scrolling: touch;
+}
+.soil-trend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 60px;
+}
+.soil-trend-label { font-size: var(--fs-xs); color: var(--text-muted); font-weight: var(--fw-semibold); }
+.soil-trend-value { font-size: var(--fs-md); font-weight: var(--fw-bold); }
+.soil-trend-date { font-size: 9px; color: var(--text-muted); }
+
+/* ── Photo Capture Area (log-activity) ───────────────────────── */
+.photo-capture-area {
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+/* ── Fertilizer Progress (in collapsible section) ─────────────── */
+.fert-progress {
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.fert-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}

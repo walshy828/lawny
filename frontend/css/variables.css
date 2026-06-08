@@ -1,0 +1,103 @@
+/* ── Lawny Design System Tokens ─────────────────────────────────── */
+:root {
+  /* Primary palette — forest/lawn inspired */
+  --color-primary: #1B4332;
+  --color-primary-light: #2D6A4F;
+  --color-primary-dark: #0D2818;
+  --color-accent: #52B788;
+  --color-accent-light: #74C69D;
+  --color-accent-glow: rgba(82, 183, 136, 0.3);
+
+  /* Semantic colors */
+  --color-success: #40C057;
+  --color-success-bg: rgba(64, 192, 87, 0.12);
+  --color-warning: #FAB005;
+  --color-warning-bg: rgba(250, 176, 5, 0.12);
+  --color-danger: #FA5252;
+  --color-danger-bg: rgba(250, 82, 82, 0.12);
+  --color-info: #339AF0;
+  --color-info-bg: rgba(51, 154, 240, 0.12);
+
+  /* Health gradient: dead → patchy → good → lush */
+  --health-1: #8B4513;
+  --health-2: #A0522D;
+  --health-3: #B8860B;
+  --health-4: #DAA520;
+  --health-5: #9ACD32;
+  --health-6: #6B8E23;
+  --health-7: #52B788;
+  --health-8: #40C057;
+  --health-9: #2F9E44;
+  --health-10: #00E676;
+
+  /* Dark theme surfaces — deep earth tones */
+  --bg-base: #0B1A0E;
+  --bg-surface: #0F2413;
+  --bg-card: rgba(15, 36, 19, 0.85);
+  --bg-card-hover: rgba(20, 48, 26, 0.95);
+  --bg-elevated: #163420;
+  --bg-input: rgba(10, 22, 14, 0.7);
+  --bg-glass: rgba(15, 36, 19, 0.6);
+
+  /* Borders */
+  --border-subtle: rgba(82, 183, 136, 0.12);
+  --border-medium: rgba(82, 183, 136, 0.25);
+  --border-strong: rgba(82, 183, 136, 0.4);
+
+  /* Text */
+  --text-primary: #E8F5E9;
+  --text-secondary: #8BAA8F;
+  --text-muted: #5A7A5E;
+  --text-accent: #74C69D;
+  --text-on-accent: #FFFFFF;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --fs-xs: 0.7rem;
+  --fs-sm: 0.8rem;
+  --fs-base: 0.95rem;
+  --fs-md: 1.05rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 20px var(--color-accent-glow);
+  --shadow-glow-strong: 0 0 30px rgba(82, 183, 136, 0.5);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --nav-height: 68px;
+  --max-width: 600px;
+  --header-height: 56px;
+}

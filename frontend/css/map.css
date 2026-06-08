@@ -1,0 +1,147 @@
+/* ── Map & Zone Styles ─────────────────────────────────────────── */
+
+.map-container {
+  width: 100%;
+  height: 60vh;
+  min-height: 350px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  margin-bottom: var(--space-lg);
+}
+
+/* Override Leaflet draw toolbar to match theme */
+.leaflet-draw-toolbar a {
+  background-color: var(--bg-elevated) !important;
+  border-color: var(--border-medium) !important;
+  color: var(--text-primary) !important;
+}
+.leaflet-draw-toolbar a:hover {
+  background-color: var(--bg-card-hover) !important;
+  border-color: var(--color-accent) !important;
+}
+.leaflet-bar a {
+  background-color: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-medium) !important;
+}
+.leaflet-bar a:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+/* Leaflet popups */
+.leaflet-popup-content-wrapper {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-medium) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.leaflet-popup-tip {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-medium) !important;
+}
+.leaflet-popup-close-button { color: var(--text-muted) !important; }
+
+/* Zone popup */
+.zone-popup h3 {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-sm);
+  color: var(--text-accent);
+}
+.zone-popup .zone-area {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+.zone-popup .zone-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* Zone list */
+.zone-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.zone-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.zone-item:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-card-hover);
+}
+.zone-color-dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.zone-item-info { flex: 1; }
+.zone-item-name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+}
+.zone-item-area {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.zone-item-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+/* Product calculator */
+.calc-section {
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.calc-result {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+/* Address search */
+.map-search {
+  position: relative;
+  margin-bottom: var(--space-lg);
+}
+.map-search-input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  padding-left: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  outline: none;
+}
+.map-search-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-glow);
+}
+.map-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-muted);
+}
