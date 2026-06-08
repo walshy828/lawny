@@ -1,0 +1,47 @@
+services:
+  api:
+    build:
+      context: https://github.com/walshy828/lawny.git#main
+      dockerfile: Dockerfile
+    container_name: lawny-api
+    ports:
+      - "${APP_PORT:-8080}:8000"
+    volumes:
+      - /docker/lawny/uploads:/app/uploads
+    environment:
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USER=${DB_USER:-lawny}
+      - DB_PASSWORD=${DB_PASSWORD:-lawny_secret}
+      - DB_NAME=${DB_NAME:-lawny}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - MAPTILER_KEY=${MAPTILER_KEY:-}
+      - APP_PIN=${APP_PIN:-}
+      - TZ=${TZ:-America/New_York}
+    restart: unless-stopped
+    networks:
+      - lawny-net
+
+  worker:
+    build:
+      context: https://github.com/walshy828/lawny.git#main
+      dockerfile: Dockerfile
+    container_name: lawny-worker
+    command: python -m app.worker.scheduler
+    volumes:
+      - /docker/lawny/uploads:/app/uploads
+    environment:
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USER=${DB_USER:-lawny}
+      - DB_PASSWORD=${DB_PASSWORD:-lawny_secret}
+      - DB_NAME=${DB_NAME:-lawny}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - TZ=${TZ:-America/New_York}
+    restart: unless-stopped
+    networks:
+      - lawny-net
+
+networks:
+  lawny-net:
+    driver: bridge
